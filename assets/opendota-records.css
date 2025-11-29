@@ -1,0 +1,198 @@
+/* Base RTL table styles with glassmorphism */
+.odr-table-wrap {
+  margin: 1rem 0;
+  direction: rtl;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.odr-title {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.1rem;
+}
+.odr-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.odr-table thead th {
+  background: rgba(255, 255, 255, 0.28);
+  text-align: right;
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 700;
+}
+.odr-table tbody td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  text-align: right; /* ensure values are right-aligned */
+}
+.odr-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+.odr-table tbody tr:hover {
+  background: rgba(33, 150, 243, 0.06);
+}
+.odr-table a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+.odr-table a:hover {
+  text-decoration: underline;
+}
+.odr-error {
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+}
+
+/* Hero cell (records tables) */
+.odr-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.odr-hero img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.odr-hero-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Skeleton loader with glassmorphism */
+.odr-skeleton-wrap {
+  margin: 1rem 0;
+  direction: rtl;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 1rem;
+}
+.odr-skeleton {
+  display: grid;
+  gap: 0.75rem;
+}
+.odr-skeleton-row {
+  display: grid;
+  grid-template-columns: 3rem 5rem 1fr 3rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+.odr-skeleton-col {
+  height: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.12) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.12) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: odr-shimmer 1.5s infinite;
+}
+.odr-skeleton-col:nth-child(3) {
+  height: 24px;
+}
+.odr-skeleton-col:nth-child(4) {
+  height: 16px;
+}
+@keyframes odr-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.odr-table-wrap.odr-loaded {
+  display: block;
+}
+.odr-table-wrap:not(.odr-loaded) {
+  display: none;
+}
+.odr-skeleton-wrap.odr-loaded {
+  display: none;
+}
+.odr-skeleton-wrap:not(.odr-loaded) {
+  display: block;
+}
+
+/* Sortable header affordance */
+.odr-sortable th.odr-sortable-col {
+  cursor: pointer;
+  position: relative;
+}
+.odr-sortable th.odr-sortable-col[data-sort="asc"]::after {
+  content: "▲";
+  position: absolute;
+  left: 0.5rem;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+.odr-sortable th.odr-sortable-col[data-sort="desc"]::after {
+  content: "▼";
+  position: absolute;
+  left: 0.5rem;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+/* Numeric value layout with progress bar */
+.odr-val {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.6rem;
+}
+.odr-val-text {
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5rem;
+  text-align: right;
+}
+.odr-bar {
+  display: block;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.odr-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #66bb6a;
+  border-radius: 999px;
+  transition: width 0.35s ease-in-out, background-color 0.3s ease;
+}
+
+/* Make tables look nice on dark backgrounds too */
+@media (prefers-color-scheme: dark) {
+  .odr-table-wrap {
+    background: rgba(20, 20, 20, 0.35);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+  .odr-table thead th {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .odr-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .odr-bar {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
