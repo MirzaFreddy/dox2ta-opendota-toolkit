@@ -196,3 +196,83 @@
     background: rgba(255, 255, 255, 0.12);
   }
 }
+
+/* Responsive design for mobile and tablet */
+@media (max-width: 768px) {
+  .odr-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .odr-table {
+    min-width: 600px;
+    width: auto;
+  }
+
+  .odr-table thead th {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .odr-table tbody td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .odr-hero {
+    gap: 0.4rem;
+  }
+
+  .odr-hero img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .odr-hero-name {
+    font-size: 0.9rem;
+  }
+
+  .odr-val {
+    gap: 0.4rem;
+  }
+
+  .odr-val-text {
+    min-width: 3.5rem;
+    font-size: 0.8rem;
+  }
+
+  .odr-bar {
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .odr-table {
+    min-width: 500px;
+  }
+
+  .odr-table thead th {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .odr-table tbody td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .odr-hero img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .odr-hero-name {
+    font-size: 0.85rem;
+  }
+
+  .odr-val-text {
+    min-width: 3rem;
+    font-size: 0.75rem;
+  }
+}
